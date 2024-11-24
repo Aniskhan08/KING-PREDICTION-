@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: #00FF00; /* Neon green text */
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            font-style: italic; /* Italics for the dialogue */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh; /* Adjusted height to center buttons */
+            gap: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 20px 40px; /* Bigger button size */
+            font-size: 20px; /* Bigger font size */
+            font-weight: bold;
+            color: #000;
+            background-color: #00FF00;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s;
+            width: 250px; /* Wider buttons */
+            text-align: center;
+            box-shadow: 0 0 10px #00FF00;
+        }
+
+        .button:hover {
+            background-color: #009900;
+            box-shadow: 0 0 20px #00FF00;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00FF00;
+            text-align: center;
+            padding: 20px 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Updated Title -->
+        <h1>Welcome to My Website</h1>
+        <!-- Dialogue remains unchanged -->
+        <p>“Trust is the most expensive thing. Cheap people can't afford it.”</p>
+    </header>
+
+    <div class="container">
+        <!-- "Get Prediction" button updated to point to the second page -->
+        <a href="king-predictor.html" class="button">Get Prediction</a>
+        <!-- "Join Channel" button remains below -->
+        <a href="https://t.me/ANISKRISH99" target="_blank" class="button">Join Channel</a>
+        <!-- "Contact" button added -->
+        <a href="https://t.me/anis_693" target="_blank" class="button">Contact</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

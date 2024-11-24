@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Predictor</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Hacker-style font */
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: #00FF00; /* Neon green text */
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #000; /* Black banner */
+            color: #00FF00; /* Neon green text for hacker theme */
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .result {
+            font-size: 80px; /* Increased the font size to make the result larger */
+            font-weight: bold;
+            margin-top: 180px;
+            color: #00FF00; /* Neon green for result */
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>WELCOME TO KING PREDICTOR</h1>
+</header>
+
+<div class="container">
+    <!-- Random result displayed immediately on page load -->
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    // Define the trend based on the given sequence
+    const trend = ["small", "big", "big", "big", "small", "big", "small", "small", "big", "big", "small"];
+    
+    let trendIndex = 0; // Index to track position in the trend array
+
+    // Function to generate the result ("BIG" or "SMALL") based on the trend
+    function getResult() {
+        var result = trend[trendIndex].toUpperCase(); // Convert result to uppercase
+        document.getElementById("result").innerText = result;
+
+        // Move to the next index in the trend, loop back to 0 if we reach the end
+        trendIndex = (trendIndex + 1) % trend.length;
+    }
+
+    // Function to check IST time and detect when the minute changes
+    function checkMinuteChange() {
+        // Store the previous minute
+        var previousMinute = new Date().getMinutes();
+        
+        // Set an interval to check the time every second
+        setInterval(function() {
+            var currentTime = new Date();
+            var utcTime = currentTime.getTime();
+            var istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC +5:30
+            var istTime = new Date(utcTime + istOffset); // Adjust to IST
+
+            var currentMinute = istTime.getMinutes(); // Get current minute in IST
+            
+            // Check if the minute has changed
+            if (currentMinute !== previousMinute) {
+                getResult(); // Change result immediately when the minute changes
+                previousMinute = currentMinute; // Update previousMinute to the new value
+            }
+        }, 1000); // Check every second
+    }
+
+    // Initialize the process on page load
+    checkMinuteChange();
+
+    // Initialize with an immediate result on page load
+    getResult();
+</script>
+
+</body>
+</html>
